@@ -14,7 +14,7 @@ jobs:
     steps:
       
       - name: Download Source Files
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2.3.4
 
       - name: Setup Pandoc
         run: brew install pandoc pandoc-crossref
@@ -26,9 +26,8 @@ jobs:
         run: |
           bash lantern.sh
           touch ./public/.nojekyll
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: public # The folder the action should deploy.
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
