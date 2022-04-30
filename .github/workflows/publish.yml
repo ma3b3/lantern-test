@@ -27,8 +27,8 @@ jobs:
           bash lantern.sh
           touch ./public/.nojekyll
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public/
+          branch: gh-pages # The branch the action should deploy to.
+          folder: public # The folder the action should deploy.
